@@ -11,7 +11,9 @@
 body {
     font-size: 15pt;
     width: min(100%,480px);
+    margin: 0 auto 0;
     min-height: 100vh;
+    background-color: #323232;
     transition :all  .2s ease-in-out ;
 }
 
@@ -27,7 +29,7 @@ html {
 section {
   
   width: 100%;
-  margin: 30% auto 0 ;
+  margin: 5% auto 0 ;
   text-align :center ;
   position :relative ;
   padding: 1em;
@@ -39,9 +41,21 @@ section .copyBtn{
   top :5%;
   right: 5%;
   padding: 1em;
-  background-color: transparent ;
+  background-color: #F5F5F5 ;
+  font-size: .8em;
   border :1px solid rgba(183,185,190,.4);
   outline: none ;
+  cursor: pointer;
+  opacity: 1;
+}
+
+
+
+section .copyBtn:hover {
+
+  background-color: #323232;
+  color: #FFFFFF;
+  transition: all .2s ease-in;
 }
 
 section label {
@@ -58,6 +72,8 @@ section label h3 {
   word-break: break-all ;
   font-size :1em;
   padding: 1em;
+  color: #FFFFFF;
+  letter-spacing: .2em;
 }
 
 section label input {
@@ -67,11 +83,15 @@ section label input {
   text-align :center ;
   pointer-events: none ;
   outline :none ;
+   border: 1px groove #F5F5F5;
+   background-color: transparent;
 }
 
 section label textarea {
   
   width: 100%;
+  font-size: 1.4em;
+  text-transform: capitalize;
   min-height: 15rem;
   resize: none;
   outline :none ;

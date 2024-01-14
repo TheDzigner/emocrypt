@@ -1,6 +1,6 @@
 const encrypt = [
   { emo: '😊', char: 'a' },
-  { emo: '☺️', char: 'b' },
+  { emo: '☺️',   char: 'b' },
   { emo: '😂', char: 'c' },
   { emo: '😍', char: 'd' },
   { emo: '🥰', char: 'e' },
@@ -41,6 +41,8 @@ const encrypt = [
 ];
 
 
+
+
 const encryptedmssgOutput = document.getElementById('encrypted-mssg');
 
 
@@ -57,6 +59,7 @@ let encodedMessage = ''
 
 messagetextInput.addEventListener('keyup', (event) => {
   const key = event.target.value.toLowerCase();
+  
   const emojis = [];
 
   key.split('').forEach(char => {
@@ -82,13 +85,14 @@ function copyEncryptedText() {
 
   try {
     
-    const url = `I have sent you an encrypted message, click on the link to decrypted it ${location.href}/? emocrypt=${encodeURIComponent(encryptedOutput)}`
+    const url = `I have sent you an encrypted message, click on the link to decrypted it ${location.href}?emocrypt=${encodeURIComponent(encryptedOutput)}`
       encryptedmssgOutput.value = url 
     encryptedmssgOutput.focus();
     encryptedmssgOutput.select();
     document.execCommand('copy');
     
-      alert('EncryptedText has been copied to your clipboard')
+      alert('EncryptedText has been copied to your clipboard');
+      location.href = '/'
   } catch (e) {
     alert('Error copying encrypted text to clipboard: ' + e);
   }
@@ -100,31 +104,32 @@ function copyEncryptedText() {
 copyEncryptedTextBtn.onclick = copyEncryptedText
 
 
+// DECRYPTED EMOJIS
 
-const encodedText = '%F0%9F%91%8A%F0%9F%A4%A3%F0%9F%A5%B0%F0%9F%91%8A%F0%9F%92%80%F0%9F%A4%94%F0%9F%91%8F%F0%9F%91%8F%F0%9F%98%8D';
+const params = new URLSearchParams(document.location.search);
+
+const emocrypt = params.get("emocrypt");
+
+if (emocrypt) {
+   location.href = '/'
+  const encode = decodeURIComponent(emocrypt)
+  encryptedmssgOutput.value = encode
+   
+  const valArray = Array.from(encode);
+   let arr = []
+  valArray.forEach(emoji => {
+
+    const decrypted = encrypt.find(entry => entry.emo === emoji);
+
+    if (decrypted) {
+      arr.push(decrypted.char)
+      messagetextInput.value = arr.join('')
+    } else {
+      
+    }
+  })
+ 
+} 
 
 
 
-
-
-// const queryParams = new URLSearchParams(window.location.search);
-// const encodedText = queryParams.get('emocrypt');
-// const decodedText = decodeURIComponent(encodedText);
-
-// console.log(decodedText);
-
-// if (encodedText) {
-//   const decodedText = decodeURIComponent(encodedText);
-//   console.log('Decoded Text:', decodedText);
-
-//   encryptedmssgOutput.value = decodedText;
-
-//   const decrypted = encrypt.find(entry => entry.emo == decodedText);
-
-//   if (decrypted) {
-//     console.log('Decryption Successful');
-//   } else {
-//     console.log('Decryption Failed');
-//     console.log('Encrypt Array:', decrypted);
-//   }
-// }
