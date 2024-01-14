@@ -98,6 +98,16 @@ section label textarea {
   outline :none ;
 }
 
+section label .clear {
+
+  float: right;
+  display: block;
+  padding: 1em;
+  text-transform: capitalize;
+  font-size: .8em;
+  cursor: pointer;
+}
+
 #decrypted-mssg {
   
   pointer-events: auto;
