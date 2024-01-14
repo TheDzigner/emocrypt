@@ -85,7 +85,7 @@ function copyEncryptedText() {
 
   try {
 
-     const href = `${location.href}?emocrypt=${encodeURIComponent(encryptedmssgOutput.value)}`
+     const href = `I have sent you an Encrypted message, click on the link to decrypte it.${location.href}?emocrypt=${encodeURIComponent(encryptedmssgOutput.value)}`
       encryptedmssgOutput.value = href
      encryptedmssgOutput.focus();
     encryptedmssgOutput.select();
