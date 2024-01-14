@@ -84,10 +84,10 @@ function copyEncryptedText() {
   }
 
   try {
-    
-    const url = `I have sent you an encrypted message, click on the link to decrypted it ${location.href}?emocrypt=${encodeURIComponent(encryptedOutput)}`
-      encryptedmssgOutput.value = url 
-    encryptedmssgOutput.focus();
+
+     const href = `${location.href}?emocrypt=${encodeURIComponent(encryptedmssgOutput.value)}`
+      encryptedmssgOutput.value = href
+     encryptedmssgOutput.focus();
     encryptedmssgOutput.select();
     document.execCommand('copy');
     
@@ -111,7 +111,7 @@ const params = new URLSearchParams(document.location.search);
 const emocrypt = params.get("emocrypt");
 
 if (emocrypt) {
-   location.href = '/'
+  // location.href = '/'
   const encode = decodeURIComponent(emocrypt)
   encryptedmssgOutput.value = encode
    
@@ -119,17 +119,16 @@ if (emocrypt) {
    let arr = []
   valArray.forEach(emoji => {
 
-    const decrypted = encrypt.find(entry => entry.emo === emoji);
+    const decrypted = encrypt.find(entry => entry.emo == emoji);
 
     if (decrypted) {
       arr.push(decrypted.char)
       messagetextInput.value = arr.join('')
     } else {
-      
+      console.log('Cannot decrypted mssg')
     }
   })
  
 } 
-
 
 
