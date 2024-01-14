@@ -92,7 +92,7 @@ function copyEncryptedText() {
     document.execCommand('copy');
     
       alert('EncryptedText has been copied to your clipboard');
-      location.href = '/'
+      location.href = ''
   } catch (e) {
     alert('Error copying encrypted text to clipboard: ' + e);
   }
