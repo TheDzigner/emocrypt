@@ -1,6 +1,6 @@
 const encrypt = [
   { emo: '😊', char: 'a' },
-  { emo: '☺️',   char: 'b' },
+  { emo: '⭐',   char: 'b' },
   { emo: '😂', char: 'c' },
   { emo: '😍', char: 'd' },
   { emo: '🥰', char: 'e' },
@@ -18,7 +18,7 @@ const encrypt = [
   { emo: '💪', char: 'q' },
   { emo: '🤘', char: 'r' },
   { emo: '👊', char: 's' },
-  { emo: '✌️', char: 't' },
+  { emo: '🥶', char: 't' },
   { emo: '👋', char: 'u' },
   { emo: '🤚', char: 'v' },
   { emo: '✋', char: 'w' },
