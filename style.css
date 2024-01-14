@@ -85,6 +85,7 @@ section label input {
   outline :none ;
    border: 1px groove #F5F5F5;
    background-color: transparent;
+   pointer-events: none;
 }
 
 section label textarea {
