@@ -96,6 +96,7 @@ section label textarea {
   min-height: 15rem;
   resize: none;
   outline :none ;
+  color: #FFFFFF;
 }
 
 section label .clear {
